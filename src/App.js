@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   ChakraProvider,
   Text,
@@ -27,6 +27,13 @@ function App() {
       })
       .catch((error) => console.log(error));
   };
+
+  const handleColor = useMemo(() => {
+    if (data?.casa === "IMPÉRIO EGÍPCIO") return "#00FF00";
+    if (data?.casa === "IMPÉRIO GREGO") return "#FF9902";
+    if (data?.casa === "IMPÉRIO PERSA") return "#614C99";
+    if (data?.casa === "IMPÉRIO ROMANO") return "#A64D79";
+  }, [data]);
 
   const handleBack = () => {
     setData(null);
@@ -93,7 +100,7 @@ function App() {
                 {data?.nome}, sua casa é:
               </Text>
 
-              <Text fontSize={24} fontWeight="800" mb={8}>
+              <Text color={handleColor} fontSize={24} fontWeight="800" mb={8}>
                 {data?.casa}
               </Text>
 
