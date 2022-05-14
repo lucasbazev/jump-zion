@@ -18,7 +18,7 @@ function App() {
   const getHouse = async (name) => {
     await axios
       .get(
-        `https://sheetdb.io/api/v1/zjlf2n4uv6p7j/search?sheet=program&nome=${name}`
+        `https://sheetdb.io/api/v1/7gzvkxm11rgjz/search?sheet=program&nome=${name}`
       )
       .then((res) => {
         console.log(res.data[0]);
